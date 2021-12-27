@@ -43,7 +43,22 @@ public class MainActivity extends AppCompatActivity {
         editTextCityName = findViewById(R.id.editTextCity);
         textViewWeather = findViewById(R.id.textViewWeather);
         button = findViewById(R.id.buttonGetWeather);
+        if (savedInstanceState!= null) {
+            city = savedInstanceState.getString("city");
+            String weather = savedInstanceState.getString("weather");
+            editTextCityName.setText(city);
+            textViewWeather.setText(weather);
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        city = editTextCityName.getText().toString().trim();
+        outState.putString("city", city);
+        String weather = String.valueOf(textViewWeather.getText());
+        outState.putString("weather", weather);
+    }
 
     public void onClickDownload(View view) {
         city = editTextCityName.getText().toString().trim();
@@ -65,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private class DownloadJSONTask extends AsyncTask<String, Void, String> {
+    private static class DownloadJSONTask extends AsyncTask<String, Void, String> {
 
         @Override
         protected String doInBackground(String... strings) {

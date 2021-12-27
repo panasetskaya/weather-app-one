@@ -6,62 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        app:srcCompat="@drawable/nebo"
-        app:layout_constraintBottom_toTopOf="@+id/linear"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <LinearLayout
-        android:id="@+id/linear"
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="8dp"
-        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView">
+        app:layout_constraintTop_toTopOf="parent" >
 
 
-        <EditText
-            android:id="@+id/editTextCity"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            android:layout_weight="1"
-            android:ems="10"
-            android:fontFamily="@font/amatic_sc_bold"
-            android:hint="@string/enter_city_name"
-            android:inputType="textAutoCorrect"
-            android:padding="8dp"
-            android:textSize="34sp" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/nebo" />
 
-        <Button
-            android:id="@+id/buttonGetWeather"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:backgroundTint="#152581"
-            android:fontFamily="@font/amatic_sc_bold"
-            android:onClick="onClickDownload"
-            android:padding="8dp"
-            android:text="@string/what_s_the_weather_there"
-            android:textSize="34sp" />
+            <EditText
+                android:id="@+id/editTextCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:fontFamily="@font/amatic_sc_bold"
+                android:hint="@string/enter_city_name"
+                android:inputType="textAutoCorrect"
+                android:padding="8dp"
+                android:layout_margin="8dp"
+                android:textSize="34sp" />
 
-        <TextView
-            android:id="@+id/textViewWeather"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="4"
-            android:fontFamily="@font/amatic_sc_bold"
-            android:padding="8dp"
-            android:textSize="34sp" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/buttonGetWeather"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:backgroundTint="#152581"
+                android:fontFamily="@font/amatic_sc_bold"
+                android:onClick="onClickDownload"
+                android:padding="8dp"
+                android:layout_margin="8dp"
+                android:text="@string/what_s_the_weather_there"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/textViewWeather"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:fontFamily="@font/amatic_sc_bold"
+                android:layout_margin="8dp"
+                android:textSize="34sp" />
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
