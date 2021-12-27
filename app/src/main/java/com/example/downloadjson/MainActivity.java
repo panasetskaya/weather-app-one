@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickDownload(View view) {
         city = editTextCityName.getText().toString().trim();
-        url = String.format("https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid=0bdd90a1a6247e1268ad3875eb7d7366");
+        url = String.format("https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid={API KEY}"); //openweathermap API KEY NEEDED HERE
         DownloadJSONTask task = new DownloadJSONTask();
         String wrong =  getResources().getString(R.string.wrong_name);
         try {
